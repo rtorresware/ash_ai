@@ -321,7 +321,7 @@ defmodule AshAi do
         }
         |> add_action_specific_properties(resource, action),
       required: [:input],
-      additionalProperties: false
+      # additionalProperties: false
     }
     |> Jason.encode!()
     |> Jason.decode!()
@@ -949,7 +949,7 @@ defmodule AshAi do
                    type: :object,
                    properties: Map.new(inputs),
                    required: required,
-                   additionalProperties: false
+                  # additionalProperties: false
                  }}
               end)
           }

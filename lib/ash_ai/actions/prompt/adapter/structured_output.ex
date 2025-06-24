@@ -22,7 +22,7 @@ defmodule AshAi.Actions.Prompt.Adapter.StructuredOutput do
             "type" => "object",
             "properties" => %{"result" => data.json_schema},
             "required" => ["result"],
-            "additionalProperties" => false
+            # "additionalProperties" => false
           },
           "name" => "result"
         },

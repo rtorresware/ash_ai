@@ -44,7 +44,7 @@ defmodule AshAi.Actions.Prompt.Adapter.CompletionTool do
           "type" => "object",
           "properties" => %{"result" => data.json_schema},
           "required" => ["result"],
-          "additionalProperties" => false
+          # "additionalProperties" => false
         },
         strict: true,
         function: fn arguments, _context ->

@@ -59,7 +59,7 @@ defmodule AshAi.OpenApi do
     if constraints[:fields] && constraints[:fields] != [] do
       %{
         type: :object,
-        additionalProperties: false,
+        # additionalProperties: false,
         properties:
           Map.new(constraints[:fields], fn {key, config} ->
             {key,
@@ -357,7 +357,7 @@ defmodule AshAi.OpenApi do
 
     %{
       type: :object,
-      additionalProperties: false,
+      # additionalProperties: false,
       properties:
         Map.merge(create_write_attributes, update_write_attributes, fn _k, l, r ->
           %{
@@ -497,7 +497,7 @@ defmodule AshAi.OpenApi do
                format
              )}
           end),
-        additionalProperties: false,
+        # additionalProperties: false,
         required:
           constraints[:fields]
           |> Enum.filter(fn {_, config} -> !config[:allow_nil?] end)
@@ -617,7 +617,7 @@ defmodule AshAi.OpenApi do
       if embedded?(instance_of) && !constraints[:fields] do
         %{
           type: :object,
-          additionalProperties: false,
+          # additionalProperties: false,
           properties: resource_attributes(instance_of, nil, format, false),
           required: required_attributes(instance_of)
         }
@@ -637,7 +637,7 @@ defmodule AshAi.OpenApi do
       embedded?(type) ->
         %{
           type: :object,
-          additionalProperties: false,
+          # additionalProperties: false,
           properties: resource_attributes(type, nil, format, false),
           required: required_attributes(type)
         }
@@ -805,7 +805,7 @@ defmodule AshAi.OpenApi do
             type: :object,
             properties: Map.new(inputs),
             required: required,
-            additionalProperties: false
+            # additionalProperties: false
           }
 
         [
@@ -844,7 +844,7 @@ defmodule AshAi.OpenApi do
         type: :object,
         required: required,
         properties: Map.new(fields_with_input),
-        additionalProperties: false
+        # additionalProperties: false
       }
       |> with_attribute_description(calculation)
     end
@@ -870,7 +870,7 @@ defmodule AshAi.OpenApi do
       %{
         type: :object,
         properties: Map.new(fields),
-        additionalProperties: false
+        # additionalProperties: false
         # required: required Missing?
       }
       |> with_attribute_description(attribute_or_aggregate)
